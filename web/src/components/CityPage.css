@@ -1,0 +1,9 @@
+.city-page {
+  min-height: 100vh;
+}
+
+.city-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}

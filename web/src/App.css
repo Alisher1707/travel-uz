@@ -1,0 +1,48 @@
+
+.App {
+  min-height: 100vh;
+}
+
+/* Demo navigation styles */
+.demo-nav {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  gap: 10px;
+  z-index: 1000;
+}
+
+/* Hide demo nav on mobile when bottom nav is visible */
+@media (max-width: 768px) {
+  .demo-nav {
+    display: none;
+  }
+
+  /* Add bottom padding for bottom navigation */
+  .App {
+    padding-bottom: 80px;
+  }
+}
+
+.demo-nav button {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 25px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+}
+
+.demo-nav button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+}
+
+.demo-nav button.active {
+  background: linear-gradient(135deg, #48bb78 0%, #38a169 100%);
+}
+

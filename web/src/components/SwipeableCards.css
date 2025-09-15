@@ -1,0 +1,143 @@
+.swipeable-container {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+
+.swipeable-wrapper {
+  position: relative;
+  overflow: hidden;
+  border-radius: 15px;
+}
+
+.swipeable-content {
+  display: flex;
+  transition: transform 0.3s ease;
+  will-change: transform;
+}
+
+.swipeable-item {
+  flex-shrink: 0;
+  padding: 0 10px;
+  box-sizing: border-box;
+}
+
+.swipeable-item:first-child {
+  padding-left: 0;
+}
+
+.swipeable-item:last-child {
+  padding-right: 0;
+}
+
+/* Navigation arrows */
+.swipe-nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.9);
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  cursor: pointer;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #667eea;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.swipe-nav-btn:hover:not(.disabled) {
+  background: #667eea;
+  color: white;
+  transform: translateY(-50%) scale(1.1);
+}
+
+.swipe-nav-btn.disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.swipe-nav-btn.prev {
+  left: -20px;
+}
+
+.swipe-nav-btn.next {
+  right: -20px;
+}
+
+/* Dots indicator */
+.swipe-indicators {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 20px;
+}
+
+.swipe-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: none;
+  background: #cbd5e0;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.swipe-dot.active {
+  background: #667eea;
+  transform: scale(1.2);
+}
+
+.swipe-dot:hover {
+  background: #667eea;
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+  .swipe-nav-btn {
+    display: none;
+  }
+
+  .swipeable-item {
+    padding: 0 5px;
+  }
+
+  .swipe-indicators {
+    margin-top: 15px;
+  }
+
+  .swipe-dot {
+    width: 6px;
+    height: 6px;
+  }
+}
+
+/* Touch feedback */
+@media (max-width: 768px) {
+  .swipeable-content {
+    touch-action: pan-x;
+  }
+
+  .swipeable-item {
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+  }
+}
+
+/* Desktop drag cursor */
+@media (min-width: 769px) {
+  .swipeable-content {
+    cursor: grab;
+  }
+
+  .swipeable-content:active {
+    cursor: grabbing;
+  }
+}
