@@ -10,13 +10,19 @@ const BottomNavigation = ({ currentPage, onNavigate }) => {
       activeIcon: '🏠'
     },
     {
-      id: 'city',
-      label: 'Shaharlar',
+      id: 'historical',
+      label: 'Tarixiy joylar',
       icon: '🏛️',
       activeIcon: '🏛️'
     },
     {
-      id: 'itinerary',
+      id: 'hotels',
+      label: 'Mehmonxonalar',
+      icon: '🏨',
+      activeIcon: '🏨'
+    },
+    {
+      id: 'routes',
       label: 'Marshrutlar',
       icon: '🗺️',
       activeIcon: '🗺️'
