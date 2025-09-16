@@ -3,7 +3,7 @@ import SwipeableCards from './SwipeableCards'
 import AnimatedCard from './AnimatedCard'
 import './HotelsSlider.css'
 
-const HotelsSlider = ({ hotels }) => {
+const HotelsSlider = ({ hotels = [] }) => {
   const [currentSlide, setCurrentSlide] = useState(0)
   const [isAutoPlaying, setIsAutoPlaying] = useState(true)
 
@@ -43,7 +43,7 @@ const HotelsSlider = ({ hotels }) => {
   }
 
   return (
-    <section className="hotels-slider">
+    <section id="mehmonxonalar" className="hotels-slider">
       <div className="section-header">
         <h2>Mehmonxonalar</h2>
         <p>Samarqandda eng yaxshi mehmonxonalarni toping</p>
@@ -69,14 +69,14 @@ const HotelsSlider = ({ hotels }) => {
               <h3>{hotel.name}</h3>
 
               <div className="amenities">
-                {hotel.amenities.slice(0, 3).map((amenity, idx) => (
+                {(hotel.amenities || []).slice(0, 3).map((amenity, idx) => (
                   <span key={idx} className="amenity-tag">
                     {amenity}
                   </span>
                 ))}
-                {hotel.amenities.length > 3 && (
+                {(hotel.amenities || []).length > 3 && (
                   <span className="more-amenities">
-                    +{hotel.amenities.length - 3}
+                    +{(hotel.amenities || []).length - 3}
                   </span>
                 )}
               </div>

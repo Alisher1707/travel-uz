@@ -14,8 +14,9 @@ const Navbar = () => {
         {/* Navigation Links */}
         <div className="navbar-links">
           <a href="#shaharlar" className="nav-link">Shaharlar</a>
-          <a href="#marshrutlar" className="nav-link">Marshrutlar</a>
+          <a href="#tarixiy-joylar" className="nav-link">Tarixiy joylar</a>
           <a href="#mehmonxonalar" className="nav-link">Mehmonxonalar</a>
+          <a href="#marshrutlar" className="nav-link">Marshrutlar</a>
           <a href="#ai-tavsiya" className="nav-link">AI tavsiya</a>
         </div>
 

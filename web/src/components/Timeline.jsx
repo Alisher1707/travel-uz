@@ -1,9 +1,9 @@
 import React from 'react'
 import './Timeline.css'
 
-const Timeline = ({ days, selectedDay, onDaySelect }) => {
+const Timeline = ({ days = [], selectedDay = 1, onDaySelect = () => {} }) => {
   return (
-    <div className="timeline">
+    <div id="marshrutlar" className="timeline">
       <div className="timeline-header">
         <h2>Marshrut dasturi</h2>
         <p>Har bir kunning batafsil rejasi</p>
@@ -121,8 +121,8 @@ const Timeline = ({ days, selectedDay, onDaySelect }) => {
                   <span className="summary-icon">💰</span>
                   <div className="summary-info">
                     <span className="summary-number">
-                      {day.places.reduce((total, place) => {
-                        const price = place.entrance.replace(/[^\d]/g, '')
+                      {(day.places || []).reduce((total, place) => {
+                        const price = (place.entrance || '0').replace(/[^\d]/g, '')
                         return total + (parseInt(price) || 0)
                       }, 0).toLocaleString()}
                     </span>

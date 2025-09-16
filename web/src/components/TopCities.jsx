@@ -92,7 +92,7 @@ const TopCities = () => {
   ]
 
   return (
-    <section className="top-cities">
+    <section id="shaharlar" className="top-cities">
       <div className="container">
         <div className="section-header">
           <h2>Top shaharlar</h2>
