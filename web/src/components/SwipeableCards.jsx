@@ -1,16 +1,19 @@
 import React, { useState, useRef, useEffect } from 'react'
 import './SwipeableCards.css'
 
-const SwipeableCards = ({ children, className = '', itemsPerView = 1 }) => {
+const SwipeableCards = ({ children, className = '', itemsPerView = 1, autoPlay = true, autoPlayInterval = 4000 }) => {
   const [currentIndex, setCurrentIndex] = useState(0)
   const [isDesktop, setIsDesktop] = useState(window.innerWidth > 768)
+  const [isHovered, setIsHovered] = useState(false)
   const containerRef = useRef(null)
   const startX = useRef(0)
   const currentX = useRef(0)
   const isDragging = useRef(false)
+  const autoPlayRef = useRef(null)
 
   const totalItems = React.Children.count(children)
-  const maxIndex = Math.max(0, totalItems - itemsPerView)
+  // Desktop da 3 tadan ko'rsatganda 3 ta page bor: 0,1,2 (0-2, 3-5, 6-8)
+  const maxIndex = isDesktop && itemsPerView === 3 ? 2 : Math.max(0, totalItems - itemsPerView)
 
   useEffect(() => {
     const handleResize = () => {
@@ -59,9 +62,15 @@ const SwipeableCards = ({ children, className = '', itemsPerView = 1 }) => {
       if (diff > 0 && currentIndex > 0) {
         // Swipe right - go to previous
         setCurrentIndex(currentIndex - 1)
+      } else if (diff > 0 && currentIndex === 0) {
+        // Swipe right at first slide - go to last slide
+        setCurrentIndex(maxIndex)
       } else if (diff < 0 && currentIndex < maxIndex) {
         // Swipe left - go to next
         setCurrentIndex(currentIndex + 1)
+      } else if (diff < 0 && currentIndex === maxIndex) {
+        // Swipe left at last slide - go to first slide
+        setCurrentIndex(0)
       } else {
         // Snap back
         updateTransform()
@@ -115,8 +124,14 @@ const SwipeableCards = ({ children, className = '', itemsPerView = 1 }) => {
     if (Math.abs(diff) > threshold) {
       if (diff > 0 && currentIndex > 0) {
         setCurrentIndex(currentIndex - 1)
+      } else if (diff > 0 && currentIndex === 0) {
+        // Mouse right at first slide - go to last slide
+        setCurrentIndex(maxIndex)
       } else if (diff < 0 && currentIndex < maxIndex) {
         setCurrentIndex(currentIndex + 1)
+      } else if (diff < 0 && currentIndex === maxIndex) {
+        // Mouse left at last slide - go to first slide
+        setCurrentIndex(0)
       } else {
         updateTransform()
       }
@@ -129,7 +144,13 @@ const SwipeableCards = ({ children, className = '', itemsPerView = 1 }) => {
 
   const updateTransform = () => {
     if (containerRef.current) {
-      const translateX = -currentIndex * (100 / itemsPerView)
+      // Desktop da har bir page uchun 3 ta item ko'rsatish
+      let translateX
+      if (isDesktop && itemsPerView === 3) {
+        translateX = -currentIndex * (100 / 3) // Har bir page 3 ta element
+      } else {
+        translateX = -currentIndex * (100 / itemsPerView)
+      }
       containerRef.current.style.transform = `translateX(${translateX}%)`
     }
   }
@@ -137,6 +158,33 @@ const SwipeableCards = ({ children, className = '', itemsPerView = 1 }) => {
   useEffect(() => {
     updateTransform()
   }, [currentIndex, itemsPerView])
+
+  // Auto-play functionality
+  useEffect(() => {
+    if (autoPlay && !isHovered && !isDragging.current) {
+      autoPlayRef.current = setInterval(() => {
+        setCurrentIndex(prevIndex => {
+          if (prevIndex >= maxIndex) {
+            return 0 // Boshiga qayt
+          }
+          return prevIndex + 1
+        })
+      }, autoPlayInterval)
+    }
+
+    return () => {
+      if (autoPlayRef.current) {
+        clearInterval(autoPlayRef.current)
+      }
+    }
+  }, [autoPlay, autoPlayInterval, isHovered, maxIndex])
+
+  // Clear auto-play when dragging
+  useEffect(() => {
+    if (isDragging.current && autoPlayRef.current) {
+      clearInterval(autoPlayRef.current)
+    }
+  }, [isDragging.current])
 
   useEffect(() => {
     if (isDesktop) {
@@ -151,23 +199,33 @@ const SwipeableCards = ({ children, className = '', itemsPerView = 1 }) => {
   }, [isDesktop, currentIndex])
 
   const goToSlide = (index) => {
-    setCurrentIndex(Math.max(0, Math.min(index, maxIndex)))
+    // Har bir nuqta 3 ta rasmni ko'rsatadi
+    const targetIndex = index * 3
+    setCurrentIndex(Math.min(targetIndex, maxIndex))
   }
 
   const nextSlide = () => {
     if (currentIndex < maxIndex) {
       setCurrentIndex(currentIndex + 1)
+    } else {
+      setCurrentIndex(0) // Oxirgi pozitsiyada bo'lsa, boshiga qayt
     }
   }
 
   const prevSlide = () => {
     if (currentIndex > 0) {
       setCurrentIndex(currentIndex - 1)
+    } else {
+      setCurrentIndex(maxIndex) // Birinchi pozitsiyada bo'lsa, oxirigiga o't
     }
   }
 
   return (
-    <div className={`swipeable-container ${className}`}>
+    <div
+      className={`swipeable-container ${className}`}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
       <div className="swipeable-wrapper">
         <div
           ref={containerRef}
@@ -194,38 +252,7 @@ const SwipeableCards = ({ children, className = '', itemsPerView = 1 }) => {
         </div>
       </div>
 
-      {/* Navigation arrows for desktop */}
-      {isDesktop && totalItems > itemsPerView && (
-        <>
-          <button
-            className={`swipe-nav-btn prev ${currentIndex === 0 ? 'disabled' : ''}`}
-            onClick={prevSlide}
-            disabled={currentIndex === 0}
-          >
-            ‹
-          </button>
-          <button
-            className={`swipe-nav-btn next ${currentIndex === maxIndex ? 'disabled' : ''}`}
-            onClick={nextSlide}
-            disabled={currentIndex === maxIndex}
-          >
-            ›
-          </button>
-        </>
-      )}
 
-      {/* Dots indicator */}
-      {totalItems > itemsPerView && (
-        <div className="swipe-indicators">
-          {Array.from({ length: maxIndex + 1 }, (_, index) => (
-            <button
-              key={index}
-              className={`swipe-dot ${currentIndex === index ? 'active' : ''}`}
-              onClick={() => goToSlide(index)}
-            />
-          ))}
-        </div>
-      )}
     </div>
   )
 }

@@ -1,0 +1,327 @@
+/* Modal Overlay */
+.cities-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 0;
+  animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Modal Content */
+.cities-modal-content {
+  background: white;
+  border-radius: 0;
+  width: 100%;
+  height: 100vh;
+  overflow-y: auto;
+  animation: slideIn 0.3s ease-out;
+
+  /* Hide scrollbar */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+}
+
+.cities-modal-content::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  display: none;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Modal Header */
+.modal-header {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 20px;
+  padding: 30px 30px 20px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.modal-header h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #333;
+  margin: 0;
+  line-height: 1;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.close-btn {
+  background: transparent;
+  border: none;
+  color: #666;
+  cursor: pointer;
+  padding: 0;
+  border-radius: 0;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  height: auto;
+  position: relative;
+  overflow: hidden;
+  vertical-align: middle;
+  margin-top: 18px;
+}
+
+.close-btn:hover {
+  background: transparent;
+  color: #3b82f6;
+  transform: none;
+}
+
+.close-btn:active {
+  transform: none;
+}
+
+.close-btn svg {
+  transition: all 0.3s ease;
+}
+
+.close-btn:hover svg {
+  filter: drop-shadow(0 2px 4px rgba(59, 130, 246, 0.3));
+}
+
+.close-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  transition: left 0.5s ease;
+}
+
+.close-btn:hover::before {
+  left: 100%;
+}
+
+/* Cities Grid */
+.cities-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 25px;
+  padding: 30px;
+}
+
+/* City Modal Card */
+.city-modal-card {
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.city-modal-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+/* City Modal Image */
+.city-modal-image {
+  position: relative;
+  height: 200px;
+  overflow: hidden;
+}
+
+.city-modal-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+  pointer-events: auto;
+}
+
+.city-modal-card:hover .city-modal-image img {
+  transform: scale(1.05);
+}
+
+.city-modal-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.city-modal-card:hover .city-modal-overlay {
+  opacity: 1;
+}
+
+.view-city-btn {
+  background: #007BFF;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.view-city-btn:hover {
+  background: #0056b3;
+  transform: translateY(-2px);
+}
+
+/* City Modal Info */
+.city-modal-info {
+  padding: 20px;
+}
+
+.city-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.city-modal-header h3 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #333;
+  margin: 0;
+}
+
+.city-modal-rating {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: #FFF3E0;
+  padding: 6px 12px;
+  border-radius: 20px;
+}
+
+.city-modal-rating .star {
+  font-size: 14px;
+}
+
+.city-modal-rating span:last-child {
+  font-weight: 600;
+  color: #FF9800;
+}
+
+.city-modal-description {
+  color: #666;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin: 10px 0 15px;
+}
+
+/* City Modal Meta */
+.city-modal-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  font-size: 0.9rem;
+}
+
+.city-modal-meta .attractions {
+  color: #007BFF;
+  font-weight: 600;
+}
+
+.city-modal-meta .price {
+  color: #28a745;
+  font-weight: 700;
+}
+
+/* Book Button */
+.book-modal-btn {
+  width: 100%;
+  background: linear-gradient(135deg, #007BFF, #0056b3);
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.book-modal-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 123, 255, 0.3);
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .cities-modal-overlay {
+    padding: 0;
+  }
+
+  .cities-modal-content {
+    height: 100vh;
+    border-radius: 0;
+  }
+
+  .modal-header {
+    padding: 20px 20px 15px;
+  }
+
+  .modal-header h2 {
+    font-size: 1.5rem;
+  }
+
+  .cities-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 20px;
+  }
+
+  .city-modal-image {
+    height: 180px;
+  }
+
+  .city-modal-info {
+    padding: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .cities-grid {
+    padding: 15px;
+  }
+
+  .city-modal-header h3 {
+    font-size: 1.2rem;
+  }
+}
