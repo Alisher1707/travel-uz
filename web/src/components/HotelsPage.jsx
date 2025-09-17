@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import AnimatedCard from './AnimatedCard'
 import './HotelsPage.css'
 
-const HotelsPage = ({ hotels = [] }) => {
+const HotelsPage = () => {
   const [selectedCategory, setSelectedCategory] = useState('all')
   const [selectedPriceRange, setSelectedPriceRange] = useState('all')
   const [searchQuery, setSearchQuery] = useState('')
@@ -103,6 +103,26 @@ const HotelsPage = ({ hotels = [] }) => {
       location: 'Shahar markazi',
       category: 'boutique',
       amenities: ['WiFi', 'Traditional Restaurant', 'Garden View', 'Cultural Programs']
+    },
+    {
+      id: 11,
+      name: 'Registon Hotel',
+      image: 'https://images.unsplash.com/photo-1555854877-bab0e564b8d5?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80',
+      price: '520,000',
+      rating: 4.5,
+      location: 'Registon maydon',
+      category: 'luxury',
+      amenities: ['WiFi', 'Historical View', 'Restaurant', 'Tour Guide', 'Parking']
+    },
+    {
+      id: 12,
+      name: 'Budget Inn Samarkand',
+      image: 'https://images.unsplash.com/photo-1566665797739-1674de7a421a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80',
+      price: '150,000',
+      rating: 4.0,
+      location: 'Shahrisabz ko\'chasi',
+      category: 'budget',
+      amenities: ['WiFi', 'Breakfast', 'Clean Rooms']
     }
   ]
 
@@ -120,11 +140,16 @@ const HotelsPage = ({ hotels = [] }) => {
     return matchesCategory && matchesSearch && matchesPrice
   })
 
+
   return (
     <div className="hotels-page">
       <div className="hotels-header">
         <div className="header-content">
-          <h1>Mehmonxonalar</h1>
+          <div className="header-titles">
+            <h2>Top shaharlar</h2>
+            <h2>Tarixiy joylar</h2>
+            <h1>Mehmonxonalar</h1>
+          </div>
           <p>Samarqandda eng yaxshi mehmonxonalarni kashf eting</p>
         </div>
       </div>
@@ -224,26 +249,28 @@ const HotelsPage = ({ hotels = [] }) => {
 
       <div className="booking-benefits">
         <h2>Nima uchun bizdan bron qilish kerak?</h2>
+        <div className="benefits-titles">
+          <h4>Luxury mehmonxonalar</h4>
+          <h4>Markaziy joylashuv</h4>
+          <h4>Eng yaxshi narxlar</h4>
+          <h4>Xavfsiz to'lov</h4>
+        </div>
         <div className="benefits-grid">
           <div className="benefit-item">
-            <div className="benefit-icon">💰</div>
-            <h4>Eng arzon narxlar</h4>
-            <p>Boshqa saytlardagi narxlarni taqqoslang - biz har doim arzonroq</p>
+            <div className="benefit-icon">✨</div>
+            <p>5 yulduzli va premium mehmonxonalar tanlovida</p>
           </div>
           <div className="benefit-item">
-            <div className="benefit-icon">🔒</div>
-            <h4>Xavfsiz to'lov</h4>
-            <p>Barcha to'lovlar SSL shifrlash orqali himoyalangan</p>
+            <div className="benefit-icon">📍</div>
+            <p>Shahar markazida va diqqatga sazovor joylarda</p>
           </div>
           <div className="benefit-item">
-            <div className="benefit-icon">📞</div>
-            <h4>24/7 yordam</h4>
-            <p>Har qanday savol yoki muammo bo'yicha yordam olasiz</p>
+            <div className="benefit-icon">💎</div>
+            <p>Bozordagi eng yaxshi narx va sifat nisbati</p>
           </div>
           <div className="benefit-item">
-            <div className="benefit-icon">🚫</div>
-            <h4>Bekor qilish bepul</h4>
-            <p>Ko'pgina mehmonxonalarni bepul bekor qilish mumkin</p>
+            <div className="benefit-icon">🛡️</div>
+            <p>Bank darajasidagi xavfsizlik va himoya</p>
           </div>
         </div>
       </div>

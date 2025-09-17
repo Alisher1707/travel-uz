@@ -111,7 +111,7 @@
 .profile-btn {
   background: rgba(255, 255, 255, 0.15);
   border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 12px;
+  border-radius: 8px;
   width: 44px;
   height: 44px;
   cursor: pointer;
@@ -123,18 +123,18 @@
 }
 
 .search-btn {
-  background: rgba(255, 255, 255, 0.15);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 12px;
-  width: 44px;
-  height: 44px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.3s ease;
-  backdrop-filter: blur(10px);
-  margin-right: 10px;
+  background: rgba(255, 255, 255, 0.15) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  border-radius: 8px !important;
+  width: 44px !important;
+  height: 44px !important;
+  cursor: pointer !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  transition: all 0.3s ease !important;
+  backdrop-filter: blur(10px) !important;
+  margin-right: 10px !important;
 }
 
 .profile-btn svg {
@@ -186,4 +186,9 @@
   .navbar-container {
     padding: 0 15px;
   }
+}
+
+/* Force search button to be rectangular */
+button.search-btn {
+  border-radius: 8px !important;
 }

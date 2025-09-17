@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import Navbar from './components/Navbar'
 import BottomNavigation from './components/BottomNavigation'
 import PageTransition from './components/PageTransition'
@@ -15,7 +15,7 @@ import './App.css'
 
 function App() {
   const [currentPage, setCurrentPage] = useState('home')
-  const [selectedCity, setSelectedCity] = useState('samarqand')
+  const [selectedCity] = useState('samarqand')
 
   // Sample data for components
   const samplePlaces = [
@@ -201,6 +201,78 @@ function App() {
       rating: 4.5,
       location: 'Shahar markazi',
       amenities: ['WiFi', 'Restoran', 'Konditsioner']
+    },
+    {
+      id: 3,
+      name: 'Grand Samarkand Superior',
+      image: 'https://images.unsplash.com/photo-1564501049412-61c2a3083791?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80',
+      price: '750,000',
+      rating: 4.9,
+      location: 'Registon ko\'chasi',
+      amenities: ['WiFi', 'Spa', 'Pool', 'Restaurant', 'Gym', 'Parking']
+    },
+    {
+      id: 4,
+      name: 'Hotel Dilshoda',
+      image: 'https://images.unsplash.com/photo-1571896349842-33c89424de2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80',
+      price: '180,000',
+      rating: 4.2,
+      location: 'Shohimardon ko\'chasi',
+      amenities: ['WiFi', 'Restoran', 'Konditsioner']
+    },
+    {
+      id: 5,
+      name: 'Samarkand Palace',
+      image: 'https://images.unsplash.com/photo-1578683010236-d716f9a3f461?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80',
+      price: '650,000',
+      rating: 4.7,
+      location: 'Universitetskaya ko\'chasi',
+      amenities: ['WiFi', 'Spa', 'Restaurant', 'Pool', 'Conference Hall']
+    },
+    {
+      id: 6,
+      name: 'Business Hotel Tashkent',
+      image: 'https://images.unsplash.com/photo-1590490360182-c33d57733427?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80',
+      price: '420,000',
+      rating: 4.4,
+      location: 'Mustaqillik ko\'chasi',
+      amenities: ['WiFi', 'Business Center', 'Conference Room', 'Parking']
+    },
+    {
+      id: 7,
+      name: 'Boutique Heritage',
+      image: 'https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80',
+      price: '380,000',
+      rating: 4.6,
+      location: 'Eski shahar',
+      amenities: ['WiFi', 'Traditional Decor', 'Garden', 'Restaurant']
+    },
+    {
+      id: 8,
+      name: 'Hotel Shodlik Palace',
+      image: 'https://images.unsplash.com/photo-1611892440504-42a792e24d32?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80',
+      price: '850,000',
+      rating: 4.8,
+      location: 'Amir Temur ko\'chasi',
+      amenities: ['WiFi', 'Spa', 'Pool', 'Multiple Restaurants', 'Gym']
+    },
+    {
+      id: 9,
+      name: 'Orient Star Hotel',
+      image: 'https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80',
+      price: '320,000',
+      rating: 4.3,
+      location: 'Siab bozori yaqinida',
+      amenities: ['WiFi', 'Restaurant', 'Meeting Room', 'Airport Transfer']
+    },
+    {
+      id: 10,
+      name: 'Malika Prime Hotel',
+      image: 'https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80',
+      price: '280,000',
+      rating: 4.4,
+      location: 'Shahar markazi',
+      amenities: ['WiFi', 'Traditional Restaurant', 'Garden View']
     }
   ]
 

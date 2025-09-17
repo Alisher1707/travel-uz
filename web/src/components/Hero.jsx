@@ -16,9 +16,6 @@ const Hero = () => {
     })
   }
 
-  const handleSearch = () => {
-    // Qidiruv funksiyasi
-  }
 
   return (
     <section className="hero">
@@ -92,7 +89,7 @@ const Hero = () => {
               </select>
             </div>
 
-            <button className="search-button" onClick={handleSearch}>
+            <button className="search-button">
               <span>Qidirish</span>
               <span>🔍</span>
             </button>
