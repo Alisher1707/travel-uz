@@ -1,0 +1,197 @@
+[
+  {
+    "id": 1,
+    "name": "Toshkent",
+    "nameEn": "Tashkent",
+    "description": "O'zbekistonning poytaxti va eng yirik shahri",
+    "coordinates": { "lat": 41.2995, "lng": 69.2401 },
+    "image": "/images/Toshkent.jpg",
+    "historicalPlaces": [
+      {
+        "id": 1,
+        "name": "Xast Imom majmuasi",
+        "description": "Qadimiy islomiy arxitektura yodgorligi",
+        "coordinates": { "lat": 41.3263, "lng": 69.2833 },
+        "image": "https://images.unsplash.com/photo-1548013146-72479768bada?w=400&h=300&fit=crop&auto=format",
+        "yearBuilt": "16-asr",
+        "category": "masjid"
+      },
+      {
+        "id": 2,
+        "name": "Chorsu bozori",
+        "description": "Eng qadimiy va mashhur bozor",
+        "coordinates": { "lat": 41.3083, "lng": 69.2408 },
+        "image": "https://images.unsplash.com/photo-1582650625119-3a31f8fa2699?w=400&h=300&fit=crop&auto=format",
+        "yearBuilt": "13-asr",
+        "category": "bozor"
+      },
+      {
+        "id": 3,
+        "name": "Amir Temur maydoni",
+        "description": "Shaharning markaziy maydoni",
+        "coordinates": { "lat": 41.3051, "lng": 69.2677 },
+        "image": "https://images.unsplash.com/photo-1564507592333-c60657eea523?w=400&h=300&fit=crop&auto=format",
+        "yearBuilt": "1994",
+        "category": "maydon"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Samarqand",
+    "nameEn": "Samarkand",
+    "description": "Buyuk Ipak yo'lining markaziy shahri",
+    "coordinates": { "lat": 39.6542, "lng": 66.9597 },
+    "image": "/images/Samarqand.jpg",
+    "historicalPlaces": [
+      {
+        "id": 4,
+        "name": "Registon",
+        "description": "Dunyoda mashhur arxitektura majmuasi",
+        "coordinates": { "lat": 39.6558, "lng": 66.9727 },
+        "image": "https://images.unsplash.com/photo-1564507592333-c60657eea523?w=400&h=300&fit=crop&auto=format",
+        "yearBuilt": "15-17-asrlar",
+        "category": "majmua"
+      },
+      {
+        "id": 5,
+        "name": "Amir Temur maqbarasi",
+        "description": "Buyuk sarkofdor Amir Temurning qabr joyi",
+        "coordinates": { "lat": 39.6483, "lng": 66.9761 },
+        "image": "https://images.unsplash.com/photo-1548013146-72479768bada?w=400&h=300&fit=crop&auto=format",
+        "yearBuilt": "1404",
+        "category": "maqbara"
+      },
+      {
+        "id": 6,
+        "name": "Ulug'bek rasadxonasi",
+        "description": "O'rta asrlardagi eng katta rasadxona",
+        "coordinates": { "lat": 39.6876, "lng": 66.9833 },
+        "image": "https://images.unsplash.com/photo-1582650625119-3a31f8fa2699?w=400&h=300&fit=crop&auto=format",
+        "yearBuilt": "1428",
+        "category": "rasadxona"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Buxoro",
+    "nameEn": "Bukhara",
+    "description": "Qadimiy islom madaniyatining markazi",
+    "coordinates": { "lat": 39.7747, "lng": 64.4286 },
+    "image": "/images/Buxoro.jpg",
+    "historicalPlaces": [
+      {
+        "id": 7,
+        "name": "Ark qal'asi",
+        "description": "Buxoro hukmdorlarining qal'asi",
+        "coordinates": { "lat": 39.7733, "lng": 64.4247 },
+        "image": "https://images.unsplash.com/photo-1586944572589-a8da92b12c02?w=400&h=300&fit=crop&auto=format",
+        "yearBuilt": "5-asr",
+        "category": "qala"
+      },
+      {
+        "id": 8,
+        "name": "Kalon minorasi",
+        "description": "Buxoroning ramzi - baland minora",
+        "coordinates": { "lat": 39.7733, "lng": 64.4289 },
+        "image": "https://images.unsplash.com/photo-1548013146-72479768bada?w=400&h=300&fit=crop&auto=format",
+        "yearBuilt": "1127",
+        "category": "minora"
+      },
+      {
+        "id": 9,
+        "name": "Lyabi Hauz",
+        "description": "Qadimiy hovuz atrofidagi majmua",
+        "coordinates": { "lat": 39.7742, "lng": 64.4267 },
+        "image": "https://images.unsplash.com/photo-1564507592333-c60657eea523?w=400&h=300&fit=crop&auto=format",
+        "yearBuilt": "16-17-asrlar",
+        "category": "hovuz"
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "name": "Xiva",
+    "nameEn": "Khiva",
+    "description": "UNESCO himoyasidagi ochiq havo muzeyi",
+    "coordinates": { "lat": 41.3775, "lng": 60.3619 },
+    "image": "/images/Xiva.jpg",
+    "historicalPlaces": [
+      {
+        "id": 10,
+        "name": "Ichan Qal'a",
+        "description": "UNESCO tomonidan himoya qilinadigan tarixiy shahar",
+        "coordinates": { "lat": 41.3775, "lng": 60.3619 },
+        "image": "https://images.unsplash.com/photo-1611273426858-450d8e3c9fce?w=400&h=300&fit=crop&auto=format",
+        "yearBuilt": "10-asr",
+        "category": "shahar"
+      },
+      {
+        "id": 11,
+        "name": "Kalta Minor",
+        "description": "To'liqlanmagan minora",
+        "coordinates": { "lat": 41.3783, "lng": 60.3628 },
+        "image": "https://images.unsplash.com/photo-1548013146-72479768bada?w=400&h=300&fit=crop&auto=format",
+        "yearBuilt": "1855",
+        "category": "minora"
+      },
+      {
+        "id": 12,
+        "name": "Tosh Havli",
+        "description": "Xivaning eng katta sarovi",
+        "coordinates": { "lat": 41.3764, "lng": 60.3608 },
+        "image": "https://images.unsplash.com/photo-1586944572589-a8da92b12c02?w=400&h=300&fit=crop&auto=format",
+        "yearBuilt": "1838",
+        "category": "saroy"
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "name": "Shahrisabz",
+    "nameEn": "Shakhrisabz",
+    "description": "Amir Temurning vatan shahri",
+    "coordinates": { "lat": 39.0556, "lng": 66.8344 },
+    "image": "/images/Shahrisabz.jpg",
+    "historicalPlaces": [
+      {
+        "id": 13,
+        "name": "Oq Saroy",
+        "description": "Amir Temurning yozgi saroyining xarobasi",
+        "coordinates": { "lat": 39.0556, "lng": 66.8344 },
+        "image": "https://images.unsplash.com/photo-1611273426858-450d8e3c9fce?w=400&h=300&fit=crop&auto=format",
+        "yearBuilt": "1380-1404",
+        "category": "saroy"
+      },
+      {
+        "id": 14,
+        "name": "Dorut Tilovat",
+        "description": "Amir Temur oilasining maqbaralar majmuasi",
+        "coordinates": { "lat": 39.0547, "lng": 66.8336 },
+        "image": "https://images.unsplash.com/photo-1548013146-72479768bada?w=400&h=300&fit=crop&auto=format",
+        "yearBuilt": "1372-1380",
+        "category": "maqbara"
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "name": "Farg'ona",
+    "nameEn": "Fergana",
+    "description": "Go'zal vodiyning markaziy shahri",
+    "coordinates": { "lat": 40.3842, "lng": 71.7843 },
+    "image": "/images/Fargona.jpg",
+    "historicalPlaces": [
+      {
+        "id": 15,
+        "name": "Yodgorlik parki",
+        "description": "Shaharning markaziy parki va yodgorligi",
+        "coordinates": { "lat": 40.3842, "lng": 71.7843 },
+        "image": "https://images.unsplash.com/photo-1582650625119-3a31f8fa2699?w=400&h=300&fit=crop&auto=format",
+        "yearBuilt": "1991",
+        "category": "park"
+      }
+    ]
+  }
+]
